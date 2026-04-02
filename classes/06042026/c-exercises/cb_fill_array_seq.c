@@ -16,4 +16,6 @@ int main() {
   clock_t t1 = clock();
 
   printf("%.6f \n", (double)(t1 - t0) / CLOCKS_PER_SEC);
+
+  return 0;
 }

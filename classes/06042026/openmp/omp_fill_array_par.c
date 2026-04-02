@@ -19,4 +19,6 @@ int main() {
 
   printf("%.6f \n", (tp1 - tp0));
   printf("%ld", *(A + (SIZE - 1)));
+
+  return 0;
 }

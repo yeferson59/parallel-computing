@@ -43,4 +43,6 @@ int main() {
   free(X);
   free(Y);
   free(acc);
+
+  return 0;
 }

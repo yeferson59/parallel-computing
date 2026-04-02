@@ -53,4 +53,6 @@ int main() {
 
   free(M);
   free(Mp);
+
+  return 0;
 }

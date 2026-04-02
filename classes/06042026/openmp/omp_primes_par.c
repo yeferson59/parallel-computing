@@ -46,4 +46,6 @@ int main() {
 
   printf("Primes found: %d\n", counter_primes);
   printf("Parallel Time: %.3fsg\n", elapsed_time);
+
+  return 0;
 }
