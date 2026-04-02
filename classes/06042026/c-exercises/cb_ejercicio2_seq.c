@@ -25,4 +25,6 @@ int main() {
   printf ("Ts = %.6f s \n" , ( double ) ( t1 - t0 ) / CLOCKS_PER_SEC);
   free(X);
   free(Y);
+
+  return 0;
 }
