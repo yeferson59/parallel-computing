@@ -22,7 +22,7 @@ int main() {
   clock_t t1 = clock();
 
   printf("Producto punto = %.6f \n" , dot);
-  printf ("Ts = %.6f s \n" , ( double ) ( t1 - t0 ) / CLOCKS_PER_SEC);
+  printf ("Ts = %.6f s \n" , (double)(t1 - t0) / CLOCKS_PER_SEC);
   free(X);
   free(Y);
 
