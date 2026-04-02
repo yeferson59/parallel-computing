@@ -3,7 +3,7 @@
 #include <time.h>
 #include <omp.h>
 
-#define N 50000
+#define N 50000000
 // Function to check if number is prine
 
 int isPrime(int n) {
@@ -33,9 +33,3 @@ int main() {
 }
 
 // Execution: OMP_NUM_THREADS=6 ./primes_number_parallel
-
-
-/*
-  Mi equipo es un Apple MacBook con chip M1. Usando el comando sysctl hw.physicalcpu hw.logicalcpu en macOS (equivalente al comando de PowerShell solicitado), obtengo 8 núcleos físicos y 8 procesadores lógicos.
-   En este caso los valores son iguales porque el M1 no utiliza Hyper-Threading. El Hyper-Threading es una tecnología de Intel mediante la cual un solo núcleo físico puede gestionar 2 hilos de ejecución simultáneamente, apareciendo ante el sistema operativo como 2 procesadores lógicos. Esto permite aprovechar ciclos ociosos del núcleo para ejecutar instrucciones de un segundo hilo. En el M1, en cambio, Apple prefirió incluir más núcleos físicos reales (diferenciados en alto rendimiento y eficiencia energética) sin necesidad de HT.
- */
