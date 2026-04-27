@@ -6,6 +6,7 @@
 
 int main() {
   int total_threads = omp_get_max_threads();
+  int chunck_size = N / total_threads;
   int *A = (int *)malloc(N * sizeof(int));
   int *B = (int *)malloc(N * sizeof(int));
   long long *C = (long long *)malloc(N * sizeof(long long));
@@ -26,10 +27,8 @@ int main() {
   #pragma omp parallel
   {
     int tid = omp_get_thread_num();
-    int nthr = omp_get_num_threads();
-    int chunck_size = N / total_threads;
     int start =  tid * chunck_size;
-    int end = (tid + 1) < nthr ? (start + chunck_size) : N;
+    int end = (tid + 1) < total_threads ? (start + chunck_size) : N;
 
     for(int i = start; i < end; i++) {
       *(C + i) = *(A + i) + *(B + i);
@@ -40,7 +39,7 @@ int main() {
   double tp1 = omp_get_wtime();
 
   long long total = 0;
-  for ( int i = 0; i < total_threads; i++) {
+  for (int i = 0; i < total_threads; i++) {
     total += *(ps+i) ;
   }
 

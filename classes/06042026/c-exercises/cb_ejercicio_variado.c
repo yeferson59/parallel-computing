@@ -31,17 +31,12 @@ void reflect(int *array, int size) {
 
 void print_array(int *array, int size) {
   printf("[");
-  for(int i = 0; i < size; i++) {
+  for(int i = 0; i < (size - 1); i++) {
     int pos = *(array + i);
-    if((i + 1) == size) {
-      printf("%d", pos);
-      break;
-    };
-
      printf("%d,", pos);
   };
 
-  printf("] \n");
+  printf("%d] \n" ,*(array + (size - 1)));
 }
 
 

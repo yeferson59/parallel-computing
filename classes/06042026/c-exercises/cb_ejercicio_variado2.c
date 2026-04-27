@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -66,16 +67,16 @@ int main() {
   int scalarProductAB = calculateScalerProduct(arr, arr2);
   int scalarProductCD = calculateScalerProduct(arr3, arr4);
 
-  printf ("Array A: ") ; printArray(arr) ;
-  printf ("Array B: ") ; printArray(arr2) ;
-  printf ("Array C: ") ; printArray(arr3) ;
-  printf ("Array D: ") ; printArray(arr4) ;
-  printf ("Scalar Product AB: %d \n", scalarProductAB) ;
-  printf ("Scalar Product CD: %d \n", scalarProductCD) ;
-  printf ("Scalar S : % d \n" , (scalarProductAB + scalarProductCD)) ;
+  printf("Array A: ") ; printArray(arr) ;
+  printf("Array B: ") ; printArray(arr2) ;
+  printf("Array C: ") ; printArray(arr3) ;
+  printf("Array D: ") ; printArray(arr4) ;
+  printf("Scalar Product AB: %d \n", scalarProductAB) ;
+  printf("Scalar Product CD: %d \n", scalarProductCD) ;
+  printf("Scalar S : % d \n" , (scalarProductAB + scalarProductCD)) ;
 
-  free (arr) ;
-  free (arr2) ;
-  free (arr3) ;
-  free (arr4) ;
+  free(arr) ;
+  free(arr2) ;
+  free(arr3) ;
+  free(arr4) ;
 }
