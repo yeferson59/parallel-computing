@@ -6,6 +6,16 @@
 
 #define N 200
 
+/*
+ * Author: Yeferson Toloza Contreras
+ * Description: Multiply matrix
+ * Procesos | Tiempo (s) | Speedup S | Eficiencia E |
+ *     1    | 0.0117     |     1     |      1       |
+ *     2    | 0.0085     |  1.3764   |    0.6882    |
+ *     4    | 0.0096     |  1.2187   |    0.3046    |
+ *     8    | 0.0138     |  0,8478   |    0.1059    |
+ */
+
 int main(int argc, char **argv) {
   MPI_Init(&argc, &argv);
 

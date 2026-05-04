@@ -2,7 +2,15 @@
 #include <mpi.h>
 #include <stdlib.h>
 
-#define N 1000000
+#define N 10000000
+
+/*
+ * Author: Yeferson Toloza Contreras
+ * Description: Add number partial
+ * N = 10.000.000, Result = 50000005000000
+ * speedUp = 0.013 / 0.008137 = 1.5976
+ * (1 - (1 / 1.5976)) / (1 - (1 / 4)) = 0.4987 = 49.87% Segun la ley de Amdahl simulación en paralelo
+ */
 
 int main(int argc, char **argv) {
   MPI_Init(&argc, &argv);
@@ -43,7 +51,7 @@ int main(int argc, char **argv) {
 
   if(rank == 0){
     printf("\nSuma total = %ld (esperado : %ld)\n", total , (long) N * (N + 1) / 2);
-    printf("Tiempo paralelo : %.6f segundos \n", t1 - t0 ) ;
+    printf("Tiempo paralelo : %.6f segundos \n", t1 - t0 ) ; // 0.008137
     free(data);
   }
 

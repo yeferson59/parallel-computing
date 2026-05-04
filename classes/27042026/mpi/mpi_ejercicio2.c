@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <mpi.h>
 
+/*
+ * Author: Yeferson Toloza Contreas
+ * Description: send and receive simple message.
+ * Questions:
+ * ¿Qué sucede si cambias el tag del MPI_Recv a un valor diferente?
+ * Se queda bloqueado el programa ya que el programa envia un tag diferente al que se esta buscando en el recv.
+ */
+
 int main(int argc, char **argv) {
   int rank;
 
