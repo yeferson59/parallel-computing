@@ -5,6 +5,24 @@
 
 #define N 10000000L // 10 millones de elementos
 
+/*
+ * Author: Yeferson Toloza
+ * Description: MPI + OPENMP
+ * Numbers Threads | Numbers Processes |   Time s
+ *        1        |        1          |   0.0410
+ *        1        |        2          |   0.0203
+ *        1        |        4          |   0.0104
+ *        2        |        1          |   0.0184
+ *        2        |        2          |   0.0098
+ *        2        |        4          |   0.0069
+ *        4        |        1          |   0.0115
+ *        4        |        2          |   0.0085
+ *        4        |        4          |   0.0079
+ *        8        |        1          |   0.0072
+ *        8        |        2          |   0.0078
+ *        8        |        4          |   0.0068
+ */
+
 int main(int argc, char **argv) {
   int provided;
   MPI_Init_thread(&argc, &argv, MPI_THREAD_FUNNELED, &provided);
@@ -14,10 +32,10 @@ int main(int argc, char **argv) {
   MPI_Comm_size(MPI_COMM_WORLD, &size);
 
   long n_local = N / size ;
-  double * datos = ( double *) malloc ( n_local * sizeof ( double ) ) ;
+  double *datos = (double *) malloc(n_local * sizeof (double)) ;
 
-  for (long i = 0; i < n_local; i ++) {
-    datos [ i ] = ( double ) ( rank * n_local + i + 1) ;
+  for (long i = 0; i < n_local; i++) {
+    *(datos  + i) = (double) (rank * n_local + i + 1) ;
   }
 
   double t0 = MPI_Wtime();
@@ -44,7 +62,7 @@ int main(int argc, char **argv) {
 
   if(rank == 0) {
     double esperado = (double) N * (N + 1) / 2.0;
-    printf("\nSuma total = %.0f \n " , suma_total);
+    printf("Suma total = %.0f\n", suma_total);
     printf("Esperado = %.0f\n", esperado);
     printf("Tiempo = %.4fs\n", t1 - t0);
     printf("Config = %d procesos MPI x %d hilos OpenMP\n", size, num_hilos);
